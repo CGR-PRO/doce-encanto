@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Doce Encanto — Confeitaria artesanal</title>
+<link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+<meta name="description" content="Bolos, doces e sobremesas artesanais sob encomenda. Monte seu pedido e envie pelo WhatsApp. Pagamento somente na retirada ou entrega.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..600&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ===================== HEADER ===================== -->
+<header class="hdr" id="hdr">
+  <div class="topbar"><div class="wrap topbar-in"><span data-bind="topAdvance"></span><span class="tb-mid">Retirada e entrega em <span data-bind="brand.city"></span></span><span>Pagamento na retirada ou entrega</span></div></div>
+  <div class="wrap hdr-in">
+    <nav class="nav nav-l" aria-label="Menu principal" id="navDesk"></nav>
+    <a href="#inicio" class="logo" aria-label="Doce Encanto — início">
+      <span class="logo-mark" data-icon="logo"></span>
+      <span class="logo-txt"><span data-bind="brand.name">DOCE ENCANTO</span><small data-bind="brand.tagline">Confeitaria artesanal</small></span>
+    </a>
+    <div class="hdr-r">
+    <nav class="nav nav-r" aria-label="Menu secundário" id="navDesk2"></nav>
+    <div class="hdr-act">
+      <button class="cart-btn" id="cartBtn" aria-label="Abrir seu pedido" data-open-cart>
+        <span data-icon="bag"></span><span class="badge" id="cartCount">0</span>
+      </button>
+      <button class="btn btn-primary btn-sm btn-desk" data-open-cart>Fazer pedido</button>
+      <button class="btn btn-primary btn-sm btn-mob" data-open-cart>Pedido</button>
+      <button class="burger" id="burger" aria-label="Abrir menu" aria-expanded="false" aria-controls="mnav"><span></span><span></span></button>
+    </div>
+    </div>
+  </div>
+</header>
+
+<div class="mnav" id="mnav" aria-hidden="true">
+  <nav aria-label="Menu" id="navMob"></nav>
+  <div class="mnav-foot">
+    <button class="btn btn-primary" data-open-cart>Fazer pedido</button>
+    <a class="btn btn-wa" data-wa="Olá! Gostaria de mais informações." target="_blank" rel="noopener"><span data-icon="wa"></span>Falar no WhatsApp</a>
+    <p data-bind="hoursShort"></p>
+  </div>
+</div>
+
+<main>
+<!-- ===================== HERO ===================== -->
+<section class="hero" id="inicio">
+  <div class="wrap hero-grid">
+    <div class="hero-txt">
+      <p class="kicker intro" style="animation-delay:.06s"><span>Pâtisserie artesanal · <span data-bind="brand.city">São Paulo</span></span></p>
+      <h1 class="intro" style="animation-delay:.12s">Momentos especiais <em>ficam ainda mais doces.</em></h1>
+      <p class="lead intro" style="animation-delay:.22s">Bolos, doces e sobremesas artesanais preparados para transformar cada ocasião em uma lembrança especial.</p>
+      <div class="hero-cta intro" style="animation-delay:.3s">
+        <a class="btn btn-primary" href="#cardapio">Ver cardápio</a>
+        <button class="btn btn-ghost" data-open-cart>Fazer pedido</button>
+      </div>
+      <p class="hero-meta intro" style="animation-delay:.38s"><span>Produção artesanal</span><i></i><span>Encomendas</span><i></i><span>Retirada e entrega</span></p>
+    </div>
+    <div class="hero-vis">
+      <span class="arch-frame intro" style="animation-delay:.42s" aria-hidden="true"></span>
+      <div class="art-box arch intro" id="heroArt" style="animation-delay:0s"></div>
+      <div class="art-box hero-thumb intro" id="heroThumb" style="animation-delay:.45s"></div>
+      <div class="seal intro" style="animation-delay:.5s" aria-hidden="true">
+        <svg viewBox="0 0 120 120"><defs><path id="circ" d="M60 60m-46 0a46 46 0 1 1 92 0a46 46 0 1 1-92 0"/></defs><text font-size="8.8" fill="currentColor" font-family="Jost, Futura, sans-serif" font-weight="500"><textPath href="#circ" textLength="284" lengthAdjust="spacing">FEITO À MÃO • COM CARINHO • DESDE 2021 •</textPath></text></svg>
+        <b data-icon="whisk"></b>
+      </div>
+      <div class="hero-card intro" style="animation-delay:.52s"><span class="pulse"></span><div><strong>Encomendas abertas</strong><span>Bolos a partir de <span data-bind="fromPrice"></span></span></div></div>
+      <p class="hero-cap intro" style="animation-delay:.48s"><span>Nº 01 da casa</span><b>Bolo de frutas vermelhas e flores</b></p>
+    </div>
+  </div>
+</section>
+
+<div class="ribbon" aria-hidden="true"><div class="wrap ribbon-in"><span>Bolos de festa</span><span>Brigadeiros finos</span><span>Bento cakes</span><span>Caixas para presentear</span><span>Doces para eventos</span></div></div>
+
+<!-- ===================== MOMENTOS ===================== -->
+<section class="sec" id="momentos" style="padding-top:clamp(40px,6vw,80px)">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><p class="kicker rv"><span><span class="idx">01</span>/ Escolha seu momento</span></p><h2 class="rv">Para cada momento, <em>um doce especial.</em></h2></div>
+    </div>
+    <div class="moments" id="moments"></div>
+  </div>
+</section>
+
+<!-- ===================== MAIS PEDIDOS ===================== -->
+<section class="sec menu-sec" id="cardapio">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><p class="kicker rv"><span><span class="idx">02</span>/ Cardápio</span></p><h2 class="rv">Os mais pedidos <em>da casa.</em></h2><p class="rv">Receitas que nossos clientes pedem de novo e de novo. Todas feitas sob encomenda, no dia.</p></div>
+      <a class="link-btn rv" href="#monte">Monte o seu bolo</a>
+    </div>
+    <div class="products" id="products"></div>
+  </div>
+</section>
+
+<!-- ===================== MONTE SEU BOLO ===================== -->
+<section class="sec" id="monte">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><p class="kicker rv"><span><span class="idx">03</span>/ Personalize</span></p><h2 class="rv">Monte o bolo <em>do seu jeito.</em></h2><p class="rv">Escolha cada detalhe e imagine o bolo perfeito para o seu momento.</p></div>
+    </div>
+    <div class="builder rv">
+      <div class="b-panel">
+        <div class="b-progress" id="bProgress" role="tablist" aria-label="Etapas"></div>
+        <div class="b-bar" aria-hidden="true"><i id="bBar"></i></div>
+        <div id="bSteps"></div>
+      </div>
+      <aside class="b-preview" aria-live="polite">
+        <div class="art-box" id="bArt"></div>
+        <div class="b-sum">
+          <h4>Seu bolo</h4>
+          <dl id="bLive"></dl>
+          <div class="b-est"><span>Estimativa</span><span class="price" id="bLivePrice">—</span></div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== KITS ===================== -->
+<section class="sec kits-sec" id="kits">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><p class="kicker rv"><span><span class="idx">04</span>/ Presentes</span></p><h2 class="rv">Presentes que <em>se desembrulham devagar.</em></h2><p class="rv">Caixas montadas à mão, com laço, cartão e tudo pronto para entregar.</p></div>
+    </div>
+    <div class="kits" id="kitsList"></div>
+  </div>
+</section>
+
+<!-- ===================== GALERIA ===================== -->
+<section class="sec" id="galeria">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><p class="kicker rv"><span><span class="idx">05</span>/ Galeria</span></p><h2 class="rv">Um pouco do que <em>sai do nosso forno.</em></h2></div>
+      <a class="link-btn rv" data-ig target="_blank" rel="noopener">Mais no Instagram</a>
+    </div>
+    <div class="gallery" id="gallery"></div>
+  </div>
+</section>
+
+<!-- ===================== MANIFESTO ===================== -->
+<section class="manifesto" aria-label="Nosso jeito">
+  <div class="wrap">
+    <p class="mf-line" data-words>Não fazemos apenas doces.</p>
+    <p class="mf-line mf-em" data-words style="--o:420ms">Criamos momentos.</p>
+    <p class="mf-sub rv">Cada encomenda começa com uma conversa e termina na sua mesa, do jeito que você imaginou.</p>
+  </div>
+</section>
+
+<!-- ===================== SOBRE ===================== -->
+<section class="sec" id="sobre">
+  <div class="wrap about">
+    <div class="about-vis rv">
+      <div class="art-box a1" id="aboutA1"></div>
+      <div class="art-box a2" id="aboutA2"></div>
+    </div>
+    <div>
+      <p class="kicker rv"><span><span class="idx">06</span>/ Sobre</span></p>
+      <h2 class="rv">Feito à mão. <em>Feito com carinho.</em></h2>
+      <p class="lead rv" data-bind="about.text"></p>
+      <p class="lead rv" data-bind="about.text2"></p>
+      <p class="sign rv" data-bind="about.sign"></p>
+      <div class="stats rv" id="stats"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== DEPOIMENTOS ===================== -->
+<section class="sec reviews-sec" id="depoimentos">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><p class="kicker rv"><span><span class="idx">07</span>/ Depoimentos</span></p><h2 class="rv">Quem prova, <em>volta.</em></h2></div>
+    </div>
+    <div class="reviews" id="reviews"></div>
+  </div>
+</section>
+
+<!-- ===================== COMO FUNCIONA ===================== -->
+<section class="sec" id="como-funciona">
+  <div class="wrap">
+    <div class="sec-head" style="text-align:center;grid-template-columns:1fr">
+      <div><p class="kicker rv" style="justify-content:center"><span><span class="idx">08</span>/ Como funciona</span></p><h2 class="rv">Do cardápio <em>à sua mesa.</em></h2></div>
+    </div>
+    <div class="steps rv" id="howSteps"></div>
+    <p class="pay-note rv"><span data-icon="hand"></span>Pagamento somente na retirada ou entrega.</p>
+  </div>
+</section>
+
+<!-- ===================== CONTATO ===================== -->
+<section id="contato">
+  <div class="wrap">
+    <div class="contact rv">
+      <p class="kicker" style="justify-content:center"><span><span class="idx">09</span>/ Contato</span></p>
+      <h2 data-words>Vamos adoçar seu <em>próximo momento?</em></h2>
+      <p>Conte o que você está planejando. A gente responde rapidinho pelo WhatsApp.</p>
+      <div class="c-grid" id="cGrid"></div>
+      <div class="c-act">
+        <button class="btn btn-primary" data-open-cart>Fazer meu pedido</button>
+        <a class="btn btn-ghost" data-wa="Olá! Vim pelo site e gostaria de conversar sobre um pedido." target="_blank" rel="noopener"><span data-icon="wa"></span>Falar no WhatsApp</a>
+        <a class="link-btn" data-ig target="_blank" rel="noopener">Ver Instagram</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== LOCALIZAÇÃO ===================== -->
+<section class="sec" id="localizacao">
+  <div class="wrap loc">
+    <div class="map rv" id="map" role="img" aria-label="Mapa ilustrativo da localização"></div>
+    <div class="loc-info rv">
+      <div>
+        <p class="kicker">Localização</p>
+        <h3>Venha nos visitar</h3>
+        <p class="addr"><span data-bind="address.street"></span><br><span data-bind="address.cityLine"></span></p>
+      </div>
+      <span class="open-now" id="openNow"><i></i><span></span></span>
+      <table class="hours" id="hoursTable"><caption class="sr">Horários de atendimento</caption></table>
+      <a class="btn btn-ghost" id="routeBtn" target="_blank" rel="noopener"><span data-icon="pin"></span>Como chegar</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="f-grid">
+      <div>
+        <a href="#inicio" class="logo"><span class="logo-mark" data-icon="logo"></span><span class="logo-txt"><span data-bind="brand.name"></span><small data-bind="brand.tagline"></small></span></a>
+        <p>Feito com carinho para deixar seus momentos mais doces.</p>
+      </div>
+      <div><h4>Navegue</h4><ul id="fLinks"></ul></div>
+      <div><h4>Fale com a gente</h4><ul>
+        <li><a data-ig target="_blank" rel="noopener">Instagram <span data-bind="instagram.user"></span></a></li>
+        <li><a data-wa="Olá! Gostaria de mais informações." target="_blank" rel="noopener">WhatsApp <span data-bind="phoneDisplay"></span></a></li>
+        <li><a href="#localizacao" data-bind="address.street"></a></li>
+      </ul></div>
+    </div>
+    <div class="f-mark" aria-hidden="true">Doce <em>Encanto</em></div>
+    <div class="f-bottom"><span>© <span data-bind="year">2026</span> <span data-bind="brand.nameTitle"></span>. Todos os direitos reservados.</span><span>Pagamento somente na retirada ou entrega.</span></div>
+  </div>
+</footer>
+
+<a class="fab" data-wa="Olá! Vim pelo site da Doce Encanto e gostaria de fazer um pedido." target="_blank" rel="noopener" aria-label="Fazer pedido pelo WhatsApp"><span class="fab-lbl" aria-hidden="true">Fazer pedido pelo WhatsApp</span><span data-icon="wa"></span></a>
+
+<!-- ===================== CARRINHO ===================== -->
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="dTitle" aria-hidden="true">
+  <div class="d-head">
+    <div><h3 id="dTitle">Seu pedido</h3><small id="dCount"></small></div>
+    <button class="icon-btn" data-close-cart aria-label="Fechar pedido"><span data-icon="x"></span></button>
+  </div>
+  <div class="d-list" id="dList"></div>
+  <div class="d-foot" id="dFoot">
+    <div class="d-total"><span>Subtotal</span><b id="dSubtotal">R$ 0,00</b></div>
+    <p class="d-pay"><span data-icon="hand"></span>Pagamento somente na retirada ou entrega.</p>
+    <p>Taxa de entrega, se houver, é combinada pelo WhatsApp.</p>
+    <button class="btn btn-primary" id="continueBtn">Continuar pedido</button>
+  </div>
+</aside>
+
+<!-- ===================== CHECKOUT ===================== -->
+<div class="modal" id="checkout" role="dialog" aria-modal="true" aria-labelledby="coTitle" aria-hidden="true">
+  <div class="modal-bg" data-close-co></div>
+  <div class="modal-box">
+    <div class="m-head">
+      <div>
+        <p class="kicker">Finalizar pedido</p>
+        <h3 id="coTitle">Seus dados e recebimento</h3>
+        <div class="m-steps"><span id="ms1" class="on">1. Dados</span><span id="ms2">2. Revisar e enviar</span></div>
+      </div>
+      <button class="icon-btn" data-close-co aria-label="Fechar"><span data-icon="x"></span></button>
+    </div>
+
+    <form id="coForm" novalidate style="display:contents">
+      <div class="m-body" id="coBody">
+        <details class="mini-sum" id="miniSum"><summary><span>Itens do pedido</span><span id="miniCount"></span></summary><ul id="miniList"></ul></details>
+
+        <fieldset>
+          <legend>Seus dados</legend>
+          <div class="fgrid">
+            <div class="f"><label for="fNome">Nome</label><input id="fNome" name="nome" autocomplete="name" required><span class="err-msg">Informe seu nome.</span></div>
+            <div class="f s3"><label for="fTel">Telefone / WhatsApp</label><input id="fTel" name="tel" type="tel" inputmode="numeric" autocomplete="tel" placeholder="(11) 99999-9999" required><span class="err-msg">Informe um telefone com DDD.</span></div>
+            <div class="f s3"><label for="fEmail">E-mail <i>(opcional)</i></label><input id="fEmail" name="email" type="email" autocomplete="email"><span class="err-msg">Confira o e-mail digitado.</span></div>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Forma de recebimento</legend>
+          <div class="rg" id="rgRec">
+            <div class="rc"><input type="radio" name="rec" id="recRet" value="retirada"><label for="recRet">Retirada na loja</label></div>
+            <div class="rc"><input type="radio" name="rec" id="recEnt" value="entrega"><label for="recEnt">Entrega</label></div>
+          </div>
+          <span class="err-msg rg-msg" id="recErr">Escolha retirada ou entrega.</span>
+
+          <div class="panel-in" id="pRet" hidden>
+            <div class="store-card"><b>Retire em nossa loja</b><span data-bind="address.full"></span><br><span data-bind="hoursShort"></span></div>
+          </div>
+          <div class="panel-in" id="pEnt" hidden>
+            <div class="fgrid">
+              <div class="f s2 half-m"><label for="fCep">CEP</label><input id="fCep" name="cep" inputmode="numeric" autocomplete="postal-code" placeholder="00000-000"><span class="err-msg">CEP com 8 dígitos.</span></div>
+              <div class="f s4"><label for="fEnd">Endereço</label><input id="fEnd" name="end" autocomplete="address-line1" placeholder="Rua, avenida…"><span class="err-msg">Informe o endereço.</span></div>
+              <div class="f s2 half-m"><label for="fNum">Número</label><input id="fNum" name="num" inputmode="numeric"><span class="err-msg">Informe o número.</span></div>
+              <div class="f s4"><label for="fComp">Complemento <i>(opcional)</i></label><input id="fComp" name="comp" autocomplete="address-line2" placeholder="Apto, bloco…"></div>
+              <div class="f s3"><label for="fBairro">Bairro</label><input id="fBairro" name="bairro"><span class="err-msg">Informe o bairro.</span></div>
+              <div class="f s3"><label for="fRef">Referência <i>(opcional)</i></label><input id="fRef" name="ref" placeholder="Próximo a…"></div>
+            </div>
+            <div class="notice"><span data-icon="info"></span><span>A taxa de entrega é informada pelo WhatsApp, conforme o bairro.</span></div>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Data desejada</legend>
+          <div class="fgrid"><div class="f s3"><label for="fData">Para quando?</label><input id="fData" name="data" type="date" class="date-in" required><span class="err-msg" id="dataErr">Escolha uma data a partir de hoje.</span></div></div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Forma de pagamento</legend>
+          <div class="rg" id="rgPay"></div>
+          <span class="err-msg rg-msg" id="payErr">Escolha a forma de pagamento.</span>
+          <div class="pay-strong"><span data-icon="hand"></span>O pagamento será realizado somente no momento da retirada ou entrega.</div>
+        </fieldset>
+
+        <fieldset style="margin-bottom:6px">
+          <legend>Observações do pedido</legend>
+          <div class="f"><label for="fObs" class="sr">Observações</label><textarea id="fObs" name="obs" placeholder="Frase no bolo, horário preferido, alergias…"></textarea></div>
+        </fieldset>
+      </div>
+      <div class="m-foot" id="footForm">
+        <div><small>Total estimado</small><strong id="coTotal">R$ 0,00</strong></div>
+        <div class="acts"><button type="submit" class="btn btn-primary">Revisar pedido</button></div>
+      </div>
+    </form>
+
+    <div class="m-body" id="coReview" hidden>
+      <p class="review-intro">Confira a mensagem abaixo. Ao tocar em enviar, o WhatsApp abre com tudo preenchido. É só enviar.</p>
+      <pre class="msg" id="msgPreview"></pre>
+    </div>
+    <div class="m-foot" id="footReview" hidden>
+      <button class="btn btn-ghost" id="backEdit">Voltar e editar</button>
+      <div class="acts"><a class="btn btn-wa" id="waSend" target="_blank" rel="noopener"><span data-icon="wa"></span>Enviar pedido pelo WhatsApp</a></div>
+    </div>
+
+    <div class="m-body" id="coDone" hidden>
+      <div class="done">
+        <div class="ok-ic" data-icon="check"></div>
+        <h4>Pedido encaminhado!</h4>
+        <p>Se o WhatsApp não abriu, toque em “Abrir WhatsApp novamente”. Vamos confirmar disponibilidade, valor final e horário por lá.</p>
+        <p><strong>Lembre-se:</strong> o pagamento é feito só na retirada ou entrega.</p>
+      </div>
+    </div>
+    <div class="m-foot" id="footDone" hidden>
+      <a class="btn btn-ghost" id="waAgain" target="_blank" rel="noopener">Abrir WhatsApp novamente</a>
+      <div class="acts"><button class="btn btn-primary" id="finishBtn">Concluir e limpar pedido</button></div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== LIGHTBOX ===================== -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Imagem ampliada" aria-hidden="true">
+  <button class="lb-btn lb-close" data-lb="close" aria-label="Fechar"><span data-icon="x"></span></button>
+  <button class="lb-btn lb-prev" data-lb="prev" aria-label="Anterior"><span data-icon="left"></span></button>
+  <figure class="lb-fig"><div class="art-box" id="lbArt"></div><figcaption id="lbCap"></figcaption></figure>
+  <button class="lb-btn lb-next" data-lb="next" aria-label="Próxima"><span data-icon="right"></span></button>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"><span id="toastMsg"></span><button id="toastBtn">Ver pedido</button></div>
+
+<script src="js/config.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>
