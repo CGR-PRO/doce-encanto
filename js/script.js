@@ -871,3 +871,22 @@ splitWords();
 bindEvents();
 initObservers();
 
+/* =====================================================================
+   MOBILE: "Ver todos os produtos" / "Ver mais fotos"
+   No celular (até 640px) o CSS mostra só os 4 primeiros itens;
+   estes botões revelam o restante. Invisíveis no desktop.
+   ===================================================================== */
+[['moreProducts', 'products'], ['moreGallery', 'gallery']].forEach(([btnId, listId]) => {
+  const btn = document.getElementById(btnId), list = document.getElementById(listId);
+  if (!btn || !list) return;
+  const LIMIT = 4;
+  const total = list.children.length;
+  if (total <= LIMIT) { btn.parentElement.hidden = true; return; }
+  btn.textContent = `${btn.dataset.more} (${total})`;
+  btn.addEventListener('click', () => {
+    const open = list.classList.toggle('show-all');
+    btn.setAttribute('aria-expanded', open);
+    btn.textContent = open ? btn.dataset.less : `${btn.dataset.more} (${total})`;
+    if (!open) list.closest('section').scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+  });
+});
