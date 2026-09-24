@@ -852,3 +852,131 @@ h3{letter-spacing:-.01em}
   .hero-thumb{translate:none}
   .mnav{clip-path:none}
 }
+
+/* =========================================================
+   MOBILE COMPACTO (até 640px)
+   Só afeta celulares. Desktop e tablet permanecem iguais.
+   ========================================================= */
+.m-more{display:none}
+@media (max-width:640px){
+  /* ---- Ritmo geral: menos espaço vertical, sem apertar ---- */
+  .sec{padding:60px 0}
+  .sec-head{margin-bottom:28px;gap:14px}
+  .sec-head h2 + p{margin-top:12px!important}
+  .sec-head p:not(.kicker){font-size:.95rem}
+  h2{font-size:clamp(1.9rem,8.6vw,2.2rem)}
+  .kicker,.eyebrow{margin-bottom:14px}
+
+  /* ---- Hero: mensagem + botão na primeira tela ---- */
+  .hero{padding:calc(var(--hdr) + var(--top) + 22px) 0 44px}
+  .hero-grid{gap:30px}
+  .hero .kicker{letter-spacing:.16em;gap:10px}
+  .hero .kicker::before{width:22px}
+  .hero h1{font-size:clamp(2.3rem,10.4vw,2.85rem);margin-bottom:16px}
+  .hero .lead{font-size:.98rem}
+  .hero-cta{margin:24px 0 0;flex-wrap:nowrap;gap:10px}
+  .hero-cta .btn{flex:1 1 0;min-width:0;padding:0 12px;letter-spacing:.14em}
+  .hero-meta{display:none}                 /* repete a faixa do topo */
+  .hero-vis{width:100%}
+  .arch,.arch-frame{aspect-ratio:4/3.3}
+  .arch-frame{inset:-8px -8px auto auto}
+  .seal,.hero-thumb,.hero-cap{display:none} /* enfeites: a foto é a protagonista */
+  .hero-card{right:12px;bottom:12px;top:auto}
+
+  /* ---- Faixa de categorias: repete "Escolha seu momento" ---- */
+  .ribbon{display:none}
+
+  /* ---- Momentos: grade 2x2 compacta ---- */
+  .moments{gap:20px 12px}
+  .moment .art-box{aspect-ratio:4/3.4}
+  .moment .num,.moment .link-btn{display:none}
+  .moment h3{font-size:1.12rem;margin-top:12px}
+  .moment p{font-size:.82rem;margin:4px 0 0;line-height:1.45}
+
+  /* ---- Cardápio e kits: linhas compactas, estilo menu ---- */
+  .products,.kits{grid-template-columns:1fr;gap:0}
+  .product,.kit{display:grid;grid-template-columns:104px minmax(0,1fr);column-gap:16px;align-items:start;padding:18px 0;border-bottom:1px solid var(--line)}
+  .product:first-child,.kit:first-child{padding-top:0}
+  .kit{border-bottom-color:rgba(246,237,226,.14)}
+  .product .art-box,.kit .art-box{aspect-ratio:4/5}
+  .p-body{padding:0}
+  .p-body h3,.kit .p-body h3{font-size:1.18rem;line-height:1.2}
+  .p-body p{font-size:.85rem;line-height:1.5;margin-top:6px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+  .p-foot{margin:10px 0 10px;padding-top:0;border-top:0}
+  .p-foot .micro{display:none}
+  .add-btn{--bh:44px;padding:0 10px;font-size:.6rem;letter-spacing:.12em}
+  .tag{top:6px;left:6px;right:6px;width:fit-content;padding:4px 6px;font-size:.48rem;letter-spacing:.06em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  #products:not(.show-all) > .product:nth-child(n+5){display:none}
+
+  /* ---- Galeria: 4 fotos iniciais ---- */
+  #gallery:not(.show-all) > .g-item:nth-child(n+5){display:none}
+
+  /* ---- Botões "Ver todos" / "Ver mais" ---- */
+  .m-more{display:flex;justify-content:center;margin-top:26px}
+  .m-more .btn{width:100%}
+
+  /* ---- Manifesto: só a frase ---- */
+  .manifesto{padding:56px 0}
+  .mf-line{font-size:clamp(1.8rem,8.4vw,2.3rem)}
+  .manifesto .mf-sub{display:none}
+
+  /* ---- Sobre: resumo curto ---- */
+  .about{gap:0}
+  .about-vis{display:none}
+  .about .lead ~ .lead{display:none}
+  .about p.lead{margin-top:16px}
+  .about .sign{font-size:1.15rem;margin-top:14px}
+  .stats{margin-top:26px}
+  .stat{padding-top:16px}
+  .stat b{font-size:1.75rem}
+
+  /* ---- Depoimentos: deslizar para o lado ---- */
+  .reviews{display:flex;max-width:none;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;margin-right:calc((100% - 100vw) / 2);padding:0 calc((100vw - 100%) / 2) 6px 0;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .reviews::-webkit-scrollbar{display:none}
+  .review,.review:first-child{flex:0 0 84%;scroll-snap-align:start;border:1px solid var(--line);padding:22px 20px!important;gap:14px;background:var(--card)}
+  .review blockquote{font-size:1.18rem}
+  .review blockquote::before{font-size:3rem;height:20px;margin-bottom:6px}
+
+  /* ---- Como funciona: passos compactos ---- */
+  .steps{row-gap:22px}
+  .step,.step:first-child,.step:nth-child(3),.step:nth-child(n+2){grid-template-columns:44px 1fr;column-gap:16px}
+  .step .n{width:44px;height:44px;font-size:1.05rem}
+  .steps::before{top:22px;bottom:22px;left:22px}
+  .step h3{font-size:1.15rem;margin-top:4px}
+  .step p{font-size:.88rem}
+  .pay-note{margin-top:32px}
+
+  /* ---- Contato: sem repetir endereço e horários (estão logo abaixo) ---- */
+  .contact{padding:46px 20px}
+  .contact::before{inset:8px}
+  .contact h2{font-size:clamp(1.9rem,8.6vw,2.3rem)}
+  .contact > p{margin-top:12px}
+  .c-grid{display:none}
+  .contact .c-act{margin-top:26px;gap:10px}
+
+  /* ---- Localização ---- */
+  .loc{gap:22px}
+  .map{min-height:210px}
+  .loc-info{gap:16px}
+  .loc-info h3{font-size:1.6rem}
+  .hours td{padding:9px 0}
+
+  /* ---- Rodapé compacto ---- */
+  .footer{padding:52px 0 calc(24px + env(safe-area-inset-bottom,0px))}
+  .f-grid{grid-template-columns:1fr;gap:26px;padding-bottom:30px}
+  .f-grid > div:nth-child(2){display:none}  /* "Navegue" repete o menu */
+  .f-grid p{font-size:1.08rem;margin-top:14px}
+  .f-grid h4{margin-bottom:12px}
+  .f-mark{white-space:nowrap;font-size:13vw;padding:24px 0 20px;margin-top:0}
+  .f-mark em{display:inline}
+  .f-bottom{padding-top:18px;gap:6px}
+
+  /* ---- Menu mobile ---- */
+  .mnav nav a{font-size:1.75rem;padding:10px 0}
+}
+@media (max-width:360px){
+  .hero .kicker{letter-spacing:.12em}
+  .hero .kicker::before{display:none}
+  .hero-cta .btn{font-size:.62rem;letter-spacing:.1em;padding:0 8px}
+  .product,.kit{grid-template-columns:88px minmax(0,1fr);column-gap:12px}
+}
